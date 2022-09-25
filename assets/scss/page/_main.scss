@@ -1,355 +1,491 @@
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Noto+Sans+KR:wght@400;500;700&family=Orbitron:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Noto+Sans+KR:wght@400;500;700&family=Orbitron:wght@400;500;600;700;800&display=swap");
+
+/*=============================================
+=            변수            =
+=============================================*/
 
 $color1: #00c8ff;
 $color2: #a8b0ff;
 $color3: #209ce3;
 
 $desktop: 1399px;
-$tablet : 899px;
+$tablet: 899px;
 $mobile: 619px;
 
+/*=====  End  변수  ======*/
+
 section {
-  width: 100%;
-  height: 100vh;
-  padding: 5vh 5vw;
-  overflow: hidden;
-  display: flex;
-  flex-wrap: wrap;
-  background: #eee;
+	width: 100%;
+	height: 100vh;
+	padding: 5vh 5vw;
+	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	background: #eee;
+	perspective: 600px;
 
-  //common box style
-  article {
-    width: 20%;
-    height: 25%;
-  }
+	//common box style
+	article {
+		width: 20%;
+		height: 25%;
+		min-height: 200px;
+		cursor: pointer;
+		opacity: 0;
+		transform: rotateY(60deg);
+		transition-duration: 0.7s;
+		transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+	}
 
-  // custorm1
-  article.custom1 {
-    width: calc(20% * 3);
+	&.on {
+		article {
+			opacity: 1;
+			transform: rotateY(0);
+		}
+	}
 
-    h1,
-    h2 {
-      font-weight: bold;
-      font-family: 'orbitron';
-      line-height: 1;
-      letter-spacing: 0.125rem;
-    }
+	// custorm1
+	article.custom1 {
+		width: calc(20% * 3);
 
-    h1 {
-      font-size: 1.625rem;
-      color: $color1;
-      margin-bottom: 0.625rem;
-    }
+		h1,
+		h2 {
+			font-weight: bold;
+			font-family: "orbitron";
+			line-height: 1;
+			letter-spacing: 0.125rem;
+		}
 
-    h2 {
-      font-size: 1.25rem;
-      color: $color2;
-      margin-bottom: 1.25rem;
-    }
+		h1 {
+			font-size: 1.625rem;
+			color: $color1;
+			margin-bottom: 0.625rem;
+		}
 
-    p {
-      width: 80%;
-      font: 0.875rem/1.3 "arial";
-      color: #999
-    }
-  }
+		h2 {
+			font-size: 1.25rem;
+			color: $color2;
+			margin-bottom: 1.25rem;
+		}
 
-  // custom2
-  article.custom2 {
-    padding: 1.875rem;
-    background: #fff;
+		p {
+			width: 80%;
+			font: 0.875rem/1.3 "arial";
+			color: #999;
+		}
+	}
 
-    .inner {
-      width: 100%;
-      height: 100%;
-      border: 0.0625rem solid $color1;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-content: center;
+	// custom2
+	article.custom2 {
+		padding: 1.875rem;
+		background: #fff;
 
-      h1 {
-        font: normal 3.125rem/1 'monoton';
-        color: $color1;
-        margin-bottom: 0.625rem;
-      }
+		.inner {
+			width: 100%;
+			height: 100%;
+			border: 0.0625rem solid $color1;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-content: center;
+			transition: 0.5s;
 
-      p {
-        font: 0.875rem/1 'arial';
-        color: $color1;
-        letter-spacing: 0.125rem;
-      }
-    }
-  }
+			h1 {
+				font: normal 3.125rem/1 "monoton";
+				color: $color1;
+				margin-bottom: 0.625rem;
+				transition: 0.5s;
+			}
 
-  // custom3
-  article.custom3 {
-    background: linear-gradient(150deg, $color1, $color2);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
+			p {
+				font: 0.875rem/1 "arial";
+				color: $color1;
+				letter-spacing: 0.125rem;
+				transition: 0.5s;
+			}
+		}
 
-    h1 {
-      font: 5rem/1 'orbitron';
-      color: #fff;
-      margin-bottom: 0.625rem;
+		&:hover {
+			background: $color1;
+			.inner {
+				border: 1px solid #fff;
+				h1,
+				p {
+					color: #fff;
+				}
+			}
+		}
+	}
 
-      span {
-        font-size: 1.875rem;
-        margin-left: 0.625rem;
-      }
-    }
+	/*=============================================
+  =            custom3            =
+  =============================================*/
+	article.custom3 {
+		background: linear-gradient(150deg, $color1, $color2);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-content: center;
+		position: relative;
 
-    p {
-      width: 100%;
-      text-align: center;
-      color: #fff;
-      font: 1rem/1 'orbitron';
-      letter-spacing: 0.125rem;
-    }
-  }
+		h1 {
+			font: 5rem/1 "orbitron";
+			color: #fff;
+			margin-bottom: 0.625rem;
+			transition: 0.5s;
 
-  // custom4
-  article.custom4 {
-    ul {
-      height: 100%;
-    }
+			span {
+				font-size: 1.875rem;
+				margin-left: 0.625rem;
+			}
+		}
 
-    li {
-      height: 25%;
-      padding-left: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      color: $color1;
+		p {
+			width: 100%;
+			text-align: center;
+			color: #fff;
+			font: 1rem/1 "orbitron";
+			letter-spacing: 0.125rem;
+			transition: 0.5s;
+		}
 
-      i {
-        font-size: 1.25rem;
-      }
+		a {
+			display: inline-block;
+			width: 180px;
+			height: 30px;
+			border: 1px solid #fff;
+			font: 14px/1 "orbitron";
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: 0px;
+			margin-top: -15px;
+			opacity: 0;
+			transition: 0.5s;
+		}
 
-      &:nth-of-type(odd) {
-        background: #fff;
-      }
-    }
-  }
+		&:hover {
+			h1 {
+				transform: translateY(-100px);
+				opacity: 0;
+			}
+			p {
+				transform: translateY(100px);
+				opacity: 0;
+			}
+			a {
+				margin-left: -90px;
+				opacity: 1;
+			}
+		}
+	}
+	/*=====  End of custom3  ======*/
 
-  // custom5
-  article.custom5 {
-    background: $color3;
-    padding-right: 3.125rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+	// custom4
+	article.custom4 {
+		position: relative;
+		z-index: 2;
+		ul {
+			height: 100%;
+			perspective: 600px;
+		}
 
-    h1 {
-      font: bold 11.875rem/1 'verdana';
-      color: rgba(0, 0, 0, 0.5);
-      position: relative;
+		li {
+			height: 25%;
+			padding-left: 2.5rem;
+			display: flex;
+			align-items: center;
+			gap: 1.25rem;
+			color: $color1;
+			transition: all 0.5s;
 
-      &::before {
-        content: 'A';
-        display: block;
-        font: inherit;
-        position: absolute;
-        top: 0;
-        left: 0;
-        color: rgba(0, 0, 0, 0.2);
-        transform: skewX(-5deg) scaleY(0.97);
+			i {
+				font-size: 1.25rem;
+			}
 
-      }
+			&:nth-of-type(odd) {
+				background: #fff;
+			}
 
-      &::after {
-        content: 'A';
-        display: block;
-        font: inherit;
-        position: absolute;
-        top: 0;
-        left: 0;
-        color: $color3;
-        filter: brightness(1.1);
-        transform-origin: top center;
-        transform: skewX(5deg) scaleY(0.95);
-      }
-    }
-  }
+			&:hover {
+				transform: rotateY(30deg);
+				background: $color1;
+				color: #fff;
+			}
+		}
+	}
 
-  // custom5
-  article.custom6 {
-    width: calc(20% * 2);
-    background-color: $color1;
-    padding: 1.25rem 4.375rem;
-    display: flex;
-    align-items: center;
-    perspective: 37.5rem;
-    gap:3.125rem;
+	// custom5
+	article.custom5 {
+		background: $color3;
+		padding-right: 3.125rem;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
 
-    .box{
-      width: 6.25rem;
-      height: 6.25rem;
-      position: relative;
-      transform-style: preserve-3d;
-      animation: ani linear 10s infinite;
+		h1 {
+			font: bold 11.875rem/1 "verdana";
+			color: rgba(0, 0, 0, 0.5);
+			position: relative;
 
-      div{
-        width: 6.25rem; height: 6.25rem;
-        border: 0.0625rem solid #fff;
-        position: absolute;
-        top: 0; left: 0;
+			&::before {
+				content: "A";
+				display: block;
+				font: inherit;
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: rgba(0, 0, 0, 0.2);
+				transform-origin: top center;
+				transform: skewX(-5deg) scaleY(0.97);
+				transition: 0.5s;
+			}
 
-        &:nth-of-type(1){
-          transform: rotateY(0deg) translateZ(3.125rem);
-        }
-        &:nth-of-type(2){
-          transform: rotateY(90deg) translateZ(3.125rem);
-        }
-        &:nth-of-type(3){
-          transform: rotateY(180deg) translateZ(3.125rem);
-        }
-        &:nth-of-type(4){
-          transform: rotateY(270deg) translateZ(3.125rem);
-        }
-        &:nth-of-type(5){
-          transform: rotateX(0deg) translateZ(3.125rem);
-        }
-        &:nth-of-type(6){
-          transform: rotateX(180deg) translateZ(3.125rem);
-        }
-      }
+			&::after {
+				content: "A";
+				display: block;
+				font: inherit;
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: $color3;
+				filter: brightness(1.1);
+				transform-origin: top center;
+				transform: rotateX(15deg);
+				transition: 0.5s;
+			}
+		}
 
-      
-    }
+		&:hover {
+			h1 {
+				&::before {
+					transform: skewX(-15deg) scaleY(0.94);
+					color: rgba(0, 0, 0, 0.1);
+				}
+				&::after {
+					transform: rotateX(30deg);
+				}
+			}
+		}
+	}
 
-    .tit{
-      h1{
-        font:1.75rem/1 'orbitron';
-        color: #fff;
-        letter-spacing: 0.0625rem;
-        margin-bottom: 0.625rem;
+	// custom5
+	article.custom6 {
+		width: calc(20% * 2);
+		background-color: $color1;
+		padding: 1.25rem 4.375rem;
+		display: flex;
+		align-items: center;
+		perspective: 37.5rem;
+		gap: 3.125rem;
 
-        &::before{
-          content: '';
-          display: block;
-          width: 1.25rem; height: 0.125rem; background: #fff;
-          margin-bottom: 0.625rem;
-        }
-      }
-      p{
-        font:0.75rem/1 'arial';
-        color: #eee;
-        letter-spacing: 0.0625rem;
-      }
-    }
-  }
+		.box {
+			width: 6.25rem;
+			height: 6.25rem;
+			position: relative;
+			transform-style: preserve-3d;
+			animation: ani linear 10s infinite;
 
+			div {
+				width: 6.25rem;
+				height: 6.25rem;
+				border: 0.0625rem solid #fff;
+				position: absolute;
+				top: 0;
+				left: 0;
 
-  @keyframes ani {
-    0%{
-      transform: rotateX(0deg) rotateY(0deg);
-    }
-    100%{
-      transform: rotateX(360deg) rotateY(360deg);
-    }
-  }
+				&:nth-of-type(1) {
+					transform: rotateY(0deg) translateZ(3.125rem);
+				}
+				&:nth-of-type(2) {
+					transform: rotateY(90deg) translateZ(3.125rem);
+				}
+				&:nth-of-type(3) {
+					transform: rotateY(180deg) translateZ(3.125rem);
+				}
+				&:nth-of-type(4) {
+					transform: rotateY(270deg) translateZ(3.125rem);
+				}
+				&:nth-of-type(5) {
+					transform: rotateX(0deg) translateZ(3.125rem);
+				}
+				&:nth-of-type(6) {
+					transform: rotateX(180deg) translateZ(3.125rem);
+				}
+			}
+		}
 
-  article.txt {
-    padding: 1.875rem;
-    background-color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-end;
+		.tit {
+			h1 {
+				font: 1.75rem/1 "orbitron";
+				color: #fff;
+				letter-spacing: 0.0625rem;
+				margin-bottom: 0.625rem;
 
-    h1 {
-      font: bold 1.125rem/1 'arial';
-      color: #777;
-      margin-bottom: 0.3125rem;
+				&::before {
+					content: "";
+					display: block;
+					width: 1.25rem;
+					height: 0.125rem;
+					background: #fff;
+					margin-bottom: 0.625rem;
+				}
+			}
+			p {
+				font: 0.75rem/1 "arial";
+				color: #eee;
+				letter-spacing: 0.0625rem;
+			}
+		}
+	}
 
-      &::before {
-        content: '';
-        display: block;
-        width: 1.25rem;
-        height: 0.1875rem;
-        background-color: $color1;
-        margin-bottom: 0.9375rem;
-      }
-    }
+	@keyframes ani {
+		0% {
+			transform: rotateX(0deg) rotateY(0deg);
+		}
+		100% {
+			transform: rotateX(360deg) rotateY(360deg);
+		}
+	}
 
-    p {
-      font: 0.75rem/1.3 'arial';
-      color: #bbb;
-    }
-  }
+	article.txt {
+		padding: 1.875rem;
+		background-color: #fff;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-end;
 
-  article.pic {
+		h1 {
+			font: bold 1.125rem/1 "arial";
+			color: #777;
+			margin-bottom: 0.3125rem;
 
-    img,
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
+			&::before {
+				content: "";
+				display: block;
+				width: 1.25rem;
+				height: 0.1875rem;
+				background-color: $color1;
+				margin-bottom: 0.9375rem;
+			}
+		}
+
+		p {
+			font: 0.75rem/1.3 "arial";
+			color: #bbb;
+		}
+	}
+
+	article.pic {
+		position: relative;
+		overflow: hidden;
+		background: #111;
+		img,
+		video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: 0.5s;
+		}
+
+		a {
+			width: 180px;
+			height: 30px;
+			border: 1px solid #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font: 12px/1 "orbitron";
+			color: #fff;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -90px;
+			margin-top: -15px;
+			transform: scale(2);
+			opacity: 0;
+			transition: 0.5s;
+		}
+
+		&:hover {
+			img,
+			video {
+				transform: scale(1.6);
+				opacity: 0.5;
+			}
+			a {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+	}
 }
 
+@media screen and (max-width: $desktop) {
+	html {
+		font-size: 15px;
+	}
+	section {
+		height: auto;
 
-@media screen and (max-width:$desktop) {
-  html{
-    font-size: 15px;
-  }
-  section{
-    height: auto;
-
-    article{
-      width: 33.3%;
-      height: 220px;
-    }
-    article.blank{
-      display: none;
-    }
-    article.custom1, article.custom6{
-      width: 66.666%;
-    }
-  }
+		article {
+			width: 33.3%;
+			height: 220px;
+		}
+		article.blank {
+			display: none;
+		}
+		article.custom1,
+		article.custom6 {
+			width: 66.666%;
+		}
+	}
 }
 
-@media screen and (max-width:$tablet) {
-  html{
-    font-size: 14px;
-  }
-  section{
-    article{
-      width: 50%;
-    }
-    article.custom1, article.custom6{
-      width: 100%;
-    }
-  }
+@media screen and (max-width: $tablet) {
+	html {
+		font-size: 14px;
+	}
+	section {
+		article {
+			width: 50%;
+		}
+		article.custom1,
+		article.custom6 {
+			width: 100%;
+		}
+	}
 }
 
-@media screen and (max-width:$mobile) {
-  html{
-    font-size: 13px;
-  }
-  section{
-    article{
-      width: 100%;
-    }
-  }
-  article.custom1{
-    height: 300px;
-  }
-  article.custom6{
-    height: 360px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    padding: 30px;
-  }
-  section article.custom2 .inner p{
-    width: 100%;
-    text-align: center;
-  }
-  section article.txt p{
-    width: 100%;
-  }
+@media screen and (max-width: $mobile) {
+	html {
+		font-size: 13px;
+	}
+	section {
+		article {
+			width: 100%;
+		}
+	}
+	article.custom1 {
+		height: 300px;
+	}
+	article.custom6 {
+		height: 360px;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-content: center;
+		padding: 30px;
+	}
+	section article.custom2 .inner p {
+		width: 100%;
+		text-align: center;
+	}
+	section article.txt p {
+		width: 100%;
+	}
 }
+
+/*----------  ex2  ----------*/

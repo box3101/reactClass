@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- swiper css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/ui.css">
+  <script src="https://kit.fontawesome.com/a32f4f29d1.js" crossorigin="anonymous"></script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <section>
+    <article class="custom1">
+      <h1>HTML5, CSS3 , JAVASCTIPT TUTOIRAL</h1>
+      <h2>Basic tutorial for web layout</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi ipsum esse repellat ut similique, molestiae
+        deleniti delectus fugiat.psum esse repellat ut similique, molestiae deleniti delectus fugiat.</p>
+    </article>
+    <article class="custom2">
+      <div class="inner">
+        <h1>VIVID</h1>
+        <p>Tytpography Degien</p>
+      </div>
+    </article>
+    <article class="txt" style="background-color: transparent;">
+      <h1>Fist Text Box.</h1>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </article>
+    <article class="blank"></article>
+    <article class="pic">
+      <img src="../img/pic1.jpg" alt="">
+      <a href="#">View</a>
+    </article>
+    <article class="custom3">
+      <h1>15 <span>th</span> </h1>
+      <p>Aniversary</p>
+      <a href="#">View</a>
+    </article>
+    <article class="pic">
+      <img src="../img/pic2.jpg" alt="">
+      <a href="#">View</a>
+    </article>
+    <article class="custom4">
+      <ul>
+        <li>
+          <i class="fas fa-solid fa-bars"></i>
+          <span>Aqua Marin</span>
+        </li>
+        <li>
+          <i class="fas fa-solid fa-bars"></i>
+          <span>Hydro Splash</span>
+        </li>
+        <li>
+          <i class="fas fa-solid fa-bars"></i>
+          <span>Blue Bird</span>
+        </li>
+        <li>
+          <i class="fas fa-solid fa-bars"></i>
+          <span>Ocean Wave</span>
+        </li>
+      </ul>
+    </article>
+    <article class="txt">
+      <h1>Second Text Box.</h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </article>
+    <article class="custom5">
+      <h1>A</h1>
+    </article>
+    <article class="txt">
+      <h1>Third Text Box.</h1>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </article>
+    <article class="blank"></article>
+    <article class="pic">
+      <img src="../img/pic3.jpg" alt="">
+      <a href="#">View</a>
+    </article>
+    <article class="blank"></article>
+    <article class="custom6">
+      <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="tit">
+        <h1>NotiFication & QnA</h1>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+      </div>
+    </article>
+    <article class="pic">
+      <video src="../img/vid.mp4" alt="" autoplay loop muted>
+        <a href="#">View</a>
+    </article>
+  </section>
+
+
+  <script>
+    const frame = document.querySelector("section");
+    const boxs = frame.querySelectorAll('article');
+
+    // boxs.forEach(( 반복되는대상, 반복하는순서 )=>{
+
+    // });
+    boxs.forEach((el, idx) => {
+      el.style.transitionDelay = 0.1 * idx + 's'
+    });
+
+    // 브라우저 로딩이 된 이후에 1초후에 on이 붙게 설정
+    setTimeout(() => { frame.classList.add("on") }, 1000);
+  </script>
+</body>
+
+</html>

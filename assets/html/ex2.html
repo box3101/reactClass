@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- swiper css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/ex2.css">
+  <script src="https://kit.fontawesome.com/8c61d70daf.js" crossorigin="anonymous"></script>
+
+  <script src="../js/ex2.js"></script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>
+    <a href="#">
+      <img src="../img2/logo.png" alt="SARAR">
+    </a>
+  </h1>
+
+  <ul class="sns">
+    <li>
+      <a href="#">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa-brands fa-twitter-square"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa-brands fa-vimeo-square"></i>
+      </a>
+    </li>
+  </ul>
+
+  <nav>
+    <article>
+      <a href="#">COLLECTION</a>
+      <div>
+        <p>
+          <img src="../img2/thumb1.jpg" alt="">
+        </p>
+        <h2>
+          COLLECTION
+        </h2>
+        <ul>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+        </ul>
+      </div>
+    </article>
+    <article>
+      <a href="#">STORE LOCATION</a>
+      <div>
+        <p>
+          <img src="../img2/thumb2.jpg" alt="">
+        </p>
+        <h2>
+          STORE LOCATION
+        </h2>
+        <ul>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+        </ul>
+      </div>
+    </article>
+    <article>
+      <a href="#">ADVERTISEMENT</a>
+      <div>
+        <p>
+          <img src="../img2/thumb3.jpg" alt="">
+        </p>
+        <h2>
+          ADVERTISEMENT
+        </h2>
+        <ul>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+        </ul>
+      </div>
+    </article>
+    <article>
+      <a href="#">ONLINE STORE</a>
+      <div>
+        <p>
+          <img src="../img2/thumb4.jpg" alt="">
+        </p>
+        <h2>
+          ONLINE STORE
+        </h2>
+        <ul>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+        </ul>
+      </div>
+    </article>
+    <article>
+      <a href="#">CONTACT US</a>
+      <div>
+        <p>
+          <img src="../img2/thumb5.jpg" alt="">
+        </p>
+        <h2>
+          CONTACT US
+        </h2>
+        <ul>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+        </ul>
+      </div>
+    </article>
+    <article>
+      <a href="#">
+        COLLECTION
+      </a>
+      <div>
+        <p>
+          <img src="../img2/thumb6.jpg" alt="">
+        </p>
+        <h2>
+          COLLECTION
+        </h2>
+        <ul>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+          <li><a href="#">menu_item</a></li>
+        </ul>
+      </div>
+    </article>
+  </nav>
+
+  <section></section>
+
+  <footer>
+    <ul>
+      <li>- TERMS</li>
+      <li>- POLICY</li>
+      <li>- FAMILY SITE</li>
+    </ul>
+
+    <p>2022 DESINEERS CODE LABORATORY &copy; ALL RIGHTS RESERVED</p>
+  </footer>
+
+  <aside>
+    <p>
+      <span>0</span>%
+    <div class="bar"></div>
+    </p>
+  </aside>
+
+  <script>
+
+
+    /*=============================================
+    =            Section comment 궁금한점            =
+    =============================================*/
+
+    /*
+      for of 반복문이란? 
+      https://bigtop.tistory.com/59
+      }
+
+      forEach 메서드란?
+      https://bigtop.tistory.com/58?category=800038
+    */
+
+    /*=====  End of Section comment 궁금한점  ======*/
+
+
+
+    const frame = document.querySelector('section');
+    const mask = document.querySelector('aside');
+    const delay = convertSpeed("aside");
+    console.log(delay);
+
+    let imgs = '';
+
+    for (let i = 0; i < 200; i++) {
+      imgs += `<img src='../img2/pic${i}.jpg' alt="img${i}" />`
+    }
+
+    frame.innerHTML = imgs;
+
+    // 동적으로 생성된 200개의 img요소를 변수에 할당
+    const imgDOM = frame.querySelectorAll("img");
+
+    let count = 0;
+
+    // forEach 어떻게 진행되는지?
+    imgDOM.forEach((img) => {
+      // onload란?3
+      
+      img.onload = () => {
+        count++;
+
+        const percent = parseInt((count / 200) * 100);
+        mask.querySelector('span').innerText = percent;
+        mask.querySelector(".bar").style.width = percent + '%';
+
+        if (percent === 100) {
+          mask.classList.add('off');
+
+          setTimeout(() => mask.remove(), delay);
+        }
+      }
+    });
+
+    // 마우스무스시 좌표값 구하기
+    window.addEventListener("mousemove", e => {
+      const wid = window.innerWidth;
+      // 백분율 공식 (현재위치 / 전체 넓이) * 100
+      // 현재 200개의 이미지가 있으므로 200분율을 구하기 위해 *200
+      const percent = parseInt((e.pageX / wid) * 200);
+
+      // for of 란?
+      for (const img of imgDOM) {
+        img.style.display = 'none';
+        imgDOM[percent].style.display = 'block';
+      }
+    });
+
+    function convertSpeed(el) {
+      const item = document.querySelector(el);
+      // parseFloat = 소수점 아래까지 반환받는 메서드
+      return parseFloat(getComputedStyle(item).transitionDuration) * 1000;
+    }
+
+  </script>
+</body>
+
+</html>

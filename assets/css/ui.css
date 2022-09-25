@@ -4287,6 +4287,10 @@ h1.masterTitle {
 .guide section .buttons {
   margin-bottom: 20px; }
 
+/*=============================================
+=            변수            =
+=============================================*/
+/*=====  End  변수  ======*/
 section {
   width: 100%;
   height: 100vh;
@@ -4294,16 +4298,30 @@ section {
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
-  background: #eee; }
+  background: #eee;
+  perspective: 600px;
+  	/*=============================================
+    =            custom3            =
+    =============================================*/
+  /*=====  End of custom3  ======*/ }
   section article {
     width: 20%;
-    height: 25%; }
+    height: 25%;
+    min-height: 200px;
+    cursor: pointer;
+    opacity: 0;
+    transform: rotateY(60deg);
+    transition-duration: .7s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); }
+  section.on article {
+    opacity: 1;
+    transform: rotateY(0); }
   section article.custom1 {
     width: calc(20% * 3); }
     section article.custom1 h1,
     section article.custom1 h2 {
       font-weight: bold;
-      font-family: 'orbitron';
+      font-family: "orbitron";
       line-height: 1;
       letter-spacing: 0.125rem; }
     section article.custom1 h1 {
@@ -4328,25 +4346,37 @@ section {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      align-content: center; }
+      align-content: center;
+      transition: 0.5s; }
       section article.custom2 .inner h1 {
-        font: normal 3.125rem/1 'monoton';
+        font: normal 3.125rem/1 "monoton";
         color: #00c8ff;
-        margin-bottom: 0.625rem; }
+        margin-bottom: 0.625rem;
+        transition: 0.5s; }
       section article.custom2 .inner p {
-        font: 0.875rem/1 'arial';
+        font: 0.875rem/1 "arial";
         color: #00c8ff;
-        letter-spacing: 0.125rem; }
+        letter-spacing: 0.125rem;
+        transition: 0.5s; }
+    section article.custom2:hover {
+      background: #00c8ff; }
+      section article.custom2:hover .inner {
+        border: 1px solid #fff; }
+        section article.custom2:hover .inner h1,
+        section article.custom2:hover .inner p {
+          color: #fff; }
   section article.custom3 {
     background: linear-gradient(150deg, #00c8ff, #a8b0ff);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: center; }
+    align-content: center;
+    position: relative; }
     section article.custom3 h1 {
-      font: 5rem/1 'orbitron';
+      font: 5rem/1 "orbitron";
       color: #fff;
-      margin-bottom: 0.625rem; }
+      margin-bottom: 0.625rem;
+      transition: 0.5s; }
       section article.custom3 h1 span {
         font-size: 1.875rem;
         margin-left: 0.625rem; }
@@ -4354,21 +4384,57 @@ section {
       width: 100%;
       text-align: center;
       color: #fff;
-      font: 1rem/1 'orbitron';
-      letter-spacing: 0.125rem; }
-  section article.custom4 ul {
-    height: 100%; }
-  section article.custom4 li {
-    height: 25%;
-    padding-left: 2.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    color: #00c8ff; }
-    section article.custom4 li i {
-      font-size: 1.25rem; }
-    section article.custom4 li:nth-of-type(odd) {
-      background: #fff; }
+      font: 1rem/1 "orbitron";
+      letter-spacing: 0.125rem;
+      transition: 0.5s; }
+    section article.custom3 a {
+      display: inline-block;
+      width: 180px;
+      height: 30px;
+      border: 1px solid #fff;
+      font: 14px/1 "orbitron";
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: 0px;
+      margin-top: -15px;
+      opacity: 0;
+      transition: 0.5s; }
+    section article.custom3:hover h1 {
+      transform: translateY(-100px);
+      opacity: 0; }
+    section article.custom3:hover p {
+      transform: translateY(100px);
+      opacity: 0; }
+    section article.custom3:hover a {
+      margin-left: -90px;
+      opacity: 1; }
+  section article.custom4 {
+    position: relative;
+    z-index: 2; }
+    section article.custom4 ul {
+      height: 100%;
+      perspective: 600px; }
+    section article.custom4 li {
+      height: 25%;
+      padding-left: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      color: #00c8ff;
+      transition: all 0.5s; }
+      section article.custom4 li i {
+        font-size: 1.25rem; }
+      section article.custom4 li:nth-of-type(odd) {
+        background: #fff; }
+      section article.custom4 li:hover {
+        transform: rotateY(30deg);
+        background: #00c8ff;
+        color: #fff; }
   section article.custom5 {
     background: #209ce3;
     padding-right: 3.125rem;
@@ -4376,20 +4442,22 @@ section {
     justify-content: flex-end;
     align-items: center; }
     section article.custom5 h1 {
-      font: bold 11.875rem/1 'verdana';
+      font: bold 11.875rem/1 "verdana";
       color: rgba(0, 0, 0, 0.5);
       position: relative; }
       section article.custom5 h1::before {
-        content: 'A';
+        content: "A";
         display: block;
         font: inherit;
         position: absolute;
         top: 0;
         left: 0;
         color: rgba(0, 0, 0, 0.2);
-        transform: skewX(-5deg) scaleY(0.97); }
+        transform-origin: top center;
+        transform: skewX(-5deg) scaleY(0.97);
+        transition: 0.5s; }
       section article.custom5 h1::after {
-        content: 'A';
+        content: "A";
         display: block;
         font: inherit;
         position: absolute;
@@ -4398,7 +4466,13 @@ section {
         color: #209ce3;
         filter: brightness(1.1);
         transform-origin: top center;
-        transform: skewX(5deg) scaleY(0.95); }
+        transform: rotateX(15deg);
+        transition: 0.5s; }
+    section article.custom5:hover h1::before {
+      transform: skewX(-15deg) scaleY(0.94);
+      color: rgba(0, 0, 0, 0.1); }
+    section article.custom5:hover h1::after {
+      transform: rotateX(30deg); }
   section article.custom6 {
     width: calc(20% * 2);
     background-color: #00c8ff;
@@ -4433,19 +4507,19 @@ section {
         section article.custom6 .box div:nth-of-type(6) {
           transform: rotateX(180deg) translateZ(3.125rem); }
     section article.custom6 .tit h1 {
-      font: 1.75rem/1 'orbitron';
+      font: 1.75rem/1 "orbitron";
       color: #fff;
       letter-spacing: 0.0625rem;
       margin-bottom: 0.625rem; }
       section article.custom6 .tit h1::before {
-        content: '';
+        content: "";
         display: block;
         width: 1.25rem;
         height: 0.125rem;
         background: #fff;
         margin-bottom: 0.625rem; }
     section article.custom6 .tit p {
-      font: 0.75rem/1 'arial';
+      font: 0.75rem/1 "arial";
       color: #eee;
       letter-spacing: 0.0625rem; }
 @keyframes ani {
@@ -4460,24 +4534,53 @@ section {
     flex-wrap: wrap;
     align-content: flex-end; }
     section article.txt h1 {
-      font: bold 1.125rem/1 'arial';
+      font: bold 1.125rem/1 "arial";
       color: #777;
       margin-bottom: 0.3125rem; }
       section article.txt h1::before {
-        content: '';
+        content: "";
         display: block;
         width: 1.25rem;
         height: 0.1875rem;
         background-color: #00c8ff;
         margin-bottom: 0.9375rem; }
     section article.txt p {
-      font: 0.75rem/1.3 'arial';
+      font: 0.75rem/1.3 "arial";
       color: #bbb; }
-  section article.pic img,
-  section article.pic video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; }
+  section article.pic {
+    position: relative;
+    overflow: hidden;
+    background: #111; }
+    section article.pic img,
+    section article.pic video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s; }
+    section article.pic a {
+      width: 180px;
+      height: 30px;
+      border: 1px solid #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font: 12px/1 "orbitron";
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -90px;
+      margin-top: -15px;
+      transform: scale(2);
+      opacity: 0;
+      transition: 0.5s; }
+    section article.pic:hover img,
+    section article.pic:hover video {
+      transform: scale(1.6);
+      opacity: 0.5; }
+    section article.pic:hover a {
+      opacity: 1;
+      transform: scale(1); }
 
 @media screen and (max-width: 1399px) {
   html {
@@ -4490,7 +4593,8 @@ section {
       height: 220px; }
     section article.blank {
       display: none; }
-    section article.custom1, section article.custom6 {
+    section article.custom1,
+    section article.custom6 {
       width: 66.666%; } }
 @media screen and (max-width: 899px) {
   html {
@@ -4498,7 +4602,8 @@ section {
 
   section article {
     width: 50%; }
-  section article.custom1, section article.custom6 {
+  section article.custom1,
+  section article.custom6 {
     width: 100%; } }
 @media screen and (max-width: 619px) {
   html {
@@ -4523,5 +4628,6 @@ section {
 
   section article.txt p {
     width: 100%; } }
+/*----------  ex2  ----------*/
 
 /*# sourceMappingURL=ui.css.map */

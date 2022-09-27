@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    let num; // 변수 선언 (값이 저장될 메모리 공간을 차지)
+    num = 3; // 변수에 값 할당 (변수공간에 값을 저장)
+
+    let num1 = 5; // 변수를 초기화 (변수를 선언하자마자 값을 할당)
+
+    // let : 변경될수 있는 값을 저장할때
+    // const : 변경되지 않는 값을 저장할때
+
+  </script>
+
+  <script>
+    /*
+       연산자 : 특정값을 도출하기 위해 연산을 처리하는 식별자
+
+       산술연산자 : 수학적인 연산 (+,-,/,*,++,--)
+       대입연산자 : 특장값을 대입하기 위한 연산 ( =, +=, -=, *=, /=)
+       비교연산자 : 두개 이상의 값을 서로 비교하기 위한 연산 (결과값 반환, true , false)
+   */
+  </script>
+
+  <script>
+    /*
+       자료형 (Data Type)
+
+       원시형 자료 (primitive type) : 특정 값이 메모리에 바로 저장 (값만 저장)
+       1. 문자 (String)
+       2. 숫자 (Number)
+       3. 논리형 (Boolean : true, false)
+       4. undefinded (undefined) : 변수를 선언하고 값을 할당하지 않으면 undefined가 대신 저장 (에러상황)
+
+       참조형 자료 (reference type) : 값이 위치하고 있는 참조 주소값만 메모리에 저장 (관련내장함수까지 같이 참조)
+       5. null (Object) : 명시적으로 (일부러) 특정 변수의 값을 비어둘때
+       6. array  (Object) : 연관된 값들을 그룹으로 묶어서 관리하는 자료형태
+       7. Object : 데이터를 key라는 인덱싱을 통해 자료를 구조적으로 묶어놓은 형태
+   */
+  </script>
+
+  <script>
+    /*
+      배열 : Array
+      연관된 값들을 하나의 그룹으로 묶어서 나열한 자료구조
+
+      const colors = ["red","green","blue"];
+      배열 값 구하기 : colors[순서값]
+      배열 값 변경 : colors[0] = "hotpink";
+  */
+  </script>
+
+  <script>
+    /*
+      객체 : Object
+      데이터를 property라는 인덱싱을 통해 구조적으로 묶어놓은 형태
+
+      let student1 = {
+        name : "홍길동",
+        age : 28,
+        isFemale : false,
+        address : "seoul",
+      }
+
+      객체 값 구하기 : student1.name , student1.age ... 
+      객체 값 변경 : student1.address = "Busan"
+  
+  */
+  </script>
+
+  <script>
+    /*
+      자료형 검사
+      let text = "Hello";
+      let num = 1;
+      let boolean = true;
+      let blank;
+      let nothing = null;
+      let colors = ["red","green","blue"];
+      let student1 = {
+        name : "홍길동",
+        age : 20,
+        isFamale : false,
+        address : "Seoul"
+      }
+
+      console.log(typeof text) , console.log(typeof num) ,console.log(typeof boolean) .... 
+  
+  */
+  </script>
+
+  <script>
+    /*
+      1. 반복문
+      const colors = ["red", "green" , "blue" , "aqua" , "pink"];
+      
+      for(let i=0; i<colors.length; i++){
+        colors[i];
+      }
+  
+      const classA = [
+        {
+          name : "Andy",
+          age : 20,
+          address : "seoul",
+        },
+        {
+          name : "Emma",
+          age : 30,
+          address : "Busan",
+        },
+        {
+          name : "David",
+          age : 40,
+          address : "daegu"
+        }
+      ];
+  
+      for(let num=0 num<classA.length; num++){
+        console.log(classA[num].name);
+      }
+  
+     2. 배열을 반복도는 for in
+     const colors = ["red","green","blue"];
+     
+     for(let color of colors){
+      console.log(color) -> red , green , blue
+     }
+
+     3. 객체의 키값을 반복도는 for of
+     const student1 = {
+      name : "david",
+      age : 20,
+      hobby : "sports",
+     }
+
+     for(let key of student1){
+      console.log(key); -> name,age,hobby  
+      console.log(student1[key]) -> "david",20,"sports"
+     }
+  
+  */
+  </script>
+
+  <script>
+    /*
+      while문
+      const cars = ["BMW", "VOLVO", "HYUNDAI"];
+
+      for(let i=0; i<cars.length; i++){
+        cars[i];
+      }
+
+      let i = 0;
+      while(cars[i]){
+        console.log(cars[i]);
+        i++;
+      }
+  
+  */
+  </script>
+
+  <script>
+    /*
+      문자의 반복처리
+      const txt = 'HELLO';
+      for(let letter of txt){
+        console.log(letter); -> H,E,L,L,O
+      }
+  
+  */
+  </script>
+
+  <script>
+    /*
+      함수의 이해
+      -- 자주쓰는 실행코드들을 블로단위로 묶어서 패키징 해놓은 형태
+      -- 자주쓰는 코드들을 기능단위로 재사용하기 위함
+      -- 함수정의 : 미리 funciton 키워드를 이용해서 자주쓸 코드들을 묶어서 정의하는 행휘
+      -- 함수호출 : 정의되어 있는 함수를 호출을 해야지만 비로서 기능이 실행됨
+
+      함수의 종류
+      선언적함수 
+      - 함수의 미리 이름을 붙여서 정의해놓은 형태, 
+      - 자바스크립트 파일을 읽을때 선언적함수를 우선적으로 읽어줌
+      - 선언적함수는 호출위치가 자유로움
+
+      function plus(){
+        ...//  
+      }
+      호출 : plus();
+
+      익명함수 
+      - 함수에 이름이 없이 정의하는 형태
+      - 익명함수 자체만으로는 호출이 불가
+      - 변수에 익명함수를 대입하거나 (대입형) 특정 이벤트 객체에 대입하는 식으로 호출가능
+
+      const minus =  function(){
+        ...//
+      }
+      호출 : minus();
+
+      대입형함수
+      - 변수에 익명함수가 대입된 형태
+
+      즉시실행함수
+      - 함수가 자기자신을 정의하자마자 바로 자신을 호출
+      - 쓰는이유 : 즉시실행 함수 안쪽의 값들을 캡슐화
+
+      (function)({
+        const num1= 2;
+        const num2= 3;
+        log(num1+num2);
+      })(); 
+
+      함수의 매개변수(파라미터)
+      - 함수외부에서 함수 내부로 특정 값을 전달하기 위한 통로 이름
+
+      인수(argument)
+      - 함수를 호출할때 파라미터를 통해서 전달되는 값
+
+      반환값 (return)
+      - 함수 내부에서 만들어진 값을 함수 호출시 외부로 반환
+      - 함수구문 실행도중 특정시점에서 강제로 코드를 실행중단될때
+
+      function plus(num1, num2){
+        const result = num1 + num2;
+        return result;
+      }
+
+      const total = plus(3,5);
+      log(total);
+
+  */
+  </script>
+
+  <script>
+    /*
+      화살표 함수
+      - 기존의 익명함수를 좀더 쓰기 편하게 축약한 형태
+
+      내부로 전달되는 파라미터가 하나면 괄호는 생략가능
+      코드블록안에서 실행되는 코드가 한줄이면 코드블록 괄호도 생략가능
+      const plus = function (num1, num2)=>{
+        const result = num1 + num2;
+        return result;
+      }
+  
+  */
+  </script>
+
+  <script>
+    /*
+      탬플릿 리터럴
+  
+      const name = "홍길동";
+      const age = 20;
+      console.log(`"안녕하세요. 제 이름은 ${name}이고 나이는 ${age}살 입니다."`);
+  
+  */
+
+  </script>
+
+
+
+
+</body>
+
+</html>

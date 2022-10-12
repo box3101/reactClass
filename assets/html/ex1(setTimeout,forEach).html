@@ -114,12 +114,14 @@
     // boxs.forEach(( 반복되는대상, 반복하는순서 )=>{
 
     // });
+
     boxs.forEach((el, idx) => {
-      el.style.transitionDelay = 0.1 * idx + 's'
+      console.log(el.style.transitionDelay = 0.1 * idx + 's')
     });
 
     // 브라우저 로딩이 된 이후에 1초후에 on이 붙게 설정
     setTimeout(() => { frame.classList.add("on") }, 1000);
+
   </script>
 </body>
 

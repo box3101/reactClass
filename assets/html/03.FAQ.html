@@ -19,7 +19,6 @@
     </div>
     <!-- questions -->
     <div class="section-center">
-      <!-- single question -->
       <article class="question">
         <!-- question title -->
         <div class="question-title">
@@ -42,8 +41,6 @@
           </p>
         </div>
       </article>
-      <!-- end of single question -->
-      <!-- single question -->
       <article class="question">
         <!-- question title -->
         <div class="question-title">
@@ -66,8 +63,6 @@
           </p>
         </div>
       </article>
-      <!-- end of single question -->
-      <!-- single question -->
       <article class="question">
         <!-- question title -->
         <div class="question-title">
@@ -91,27 +86,29 @@
           </p>
         </div>
       </article>
-      <!-- end of single question -->
+    </div>
   </section>
 </body>
 
 <script>
 
   const questions = document.querySelectorAll(".question");
-
-  questions.forEach((el)=>{
-
+  //forEach 반복문을 통해 question 요소를 반복
+  questions.forEach((el) => {
+    // tit 변수에 question title 요소를 대입
     const tit = el.querySelector(".question-title");
-
-    tit.addEventListener("click",()=>{
-
-      questions.forEach(function(item){
-        if(item !== el){
+    // 선택한 question title 요소를 클릭시 
+    tit.addEventListener("click", (e) => {
+      // forEach 반복문을 통해 question 요소를 반복
+      questions.forEach((item) => {
+        // question 값이 선택한 question 값이랑 같지 않을경우
+        if (el !== item) {
+          // question 요소의 show-text class를 제거 
           item.classList.remove("show-text");
         }
       });
-
-      el.classList.toggle('show-text');
+      // 각각의 question 요소의 show-text class를 토글
+      el.classList.toggle("show-text");
     });
   });
 

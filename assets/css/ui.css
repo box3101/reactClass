@@ -4564,7 +4564,7 @@ section {
       display: flex;
       justify-content: center;
       align-items: center;
-      font: 12px/1 "orbitron";
+      font: 12px/1 "orbitron"; color: #fff;
       color: #fff;
       position: absolute;
       top: 50%;

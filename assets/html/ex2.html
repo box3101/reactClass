@@ -168,6 +168,8 @@
       <span>0</span>%
     <div class="bar"></div>
     </p>
+
+    <img src="" alt="">
   </aside>
 
   <script>
@@ -194,8 +196,8 @@
 
     let imgs = '';
 
-    for (let i = 0; i < 200; i++) {
-      imgs += `<img src='../img2/pic${i}.jpg' alt="img${i}" />`
+    for (i = 0; i < 200; i++) {
+      imgs += `<img src="../img2/pic${i}.jpg"> `
     }
 
     frame.innerHTML = imgs;
@@ -208,7 +210,7 @@
     // forEach 어떻게 진행되는지?
     imgDOM.forEach((img) => {
       // onload란?3
-      
+
       img.onload = () => {
         count++;
 
@@ -225,17 +227,17 @@
     });
 
     // 마우스무스시 좌표값 구하기
-    window.addEventListener("mousemove", e => {
-      const wid = window.innerWidth;
-      // 백분율 공식 (현재위치 / 전체 넓이) * 100
-      // 현재 200개의 이미지가 있으므로 200분율을 구하기 위해 *200
-      const percent = parseInt((e.pageX / wid) * 200);
+    frame.addEventListener("mousemove", (e) => {
 
-      // for of 란?
-      for (const img of imgDOM) {
-        img.style.display = 'none';
-        imgDOM[percent].style.display = 'block';
+      let percent;
+      const wid = window.innerWidth;
+      percent = parseInt((e.pageX / wid) * 200);
+
+      for (const img of imgDom) {
+        img.style.display = "none";
+        imgDom[percent].style.display = "block";
       }
+
     });
 
     function convertSpeed(el) {

@@ -1,15 +1,22 @@
+//npm i axios
 import Layout from "../common/Layout";
-import { useSelector } from 'react-redux';
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function Department() {
     const path = process.env.PUBLIC_URL;
-    const Members = useSelector((store) => store.memberReducer.members);
+    const [Members, setMembers] = useState([]);
+
+
+    useEffect(() => {
+        axios.get(`${path}/DB/members.json`).then((json) => {
+            setMembers(json.data.members);
+        })
+    }, []);
 
     return (
         <Layout name={'Department'}>
-
             {Members.map((data, index) => {
-
                 return (
                     <article key={index}>
                         <div className="inner">
@@ -22,7 +29,6 @@ export default function Department() {
                     </article>
                 );
             })}
-
 
 
         </Layout>

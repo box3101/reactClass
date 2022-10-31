@@ -1,13 +1,14 @@
 import { Route, Switch } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
 //common
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 
+
+
 //main
 import Main from './components/main/Main';
+
 
 //sub
 import Community from './components/sub/Community';
@@ -19,9 +20,6 @@ import Youtube from './components/sub/Youtube';
 
 import './scss/style.scss';
 function App() {
-	const dispatch = useDispatch();
-
-
 	return (
 		<>
 			{/* Switch는 같은 경로의 라우터 연결시 구체적인 라우터 하나만 적용한다 */}
@@ -31,9 +29,9 @@ function App() {
 			</Switch>
 
 
-			{/* <Route path='/department' component={Department} /> */}
+			<Route path='/department' component={Department} />
 			<Route path='/community' component={Community} />
-			{/* <Route path='/gallery' component={Gallery} /> */}
+			<Route path='/gallery' component={Gallery} />
 			<Route path='/location' component={Location} />
 			<Route path='/member' component={Member} />
 			<Route path='/youtube' component={Youtube} />

@@ -1,43 +1,27 @@
 #vids {
 	width: 100%;
 	height: 100vh;
-	background: linear-gradient(45deg, violet, cornflowerblue);
+	background: #eeffc6;
 	position: relative;
+	padding: 10vw;
 
 	.swiper {
 		height: 100%;
-		padding: 20vh 0px;
-
 		.swiper-slide {
-			width: 600px;
-
+			width: 100%;
 			.inner {
 				width: 100%;
 				height: 100%;
-				padding: 30px;
+
 				background: #fff;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font: bold 50px/1 'arial';
+				color: #666;
 				opacity: 0.5;
 				transform: scale(0.8);
 				transition: opacity 0.5s, transform 0.5s;
-
-				.pic {
-					width: 100%;
-					height: 300px;
-					overflow: hidden;
-					margin-bottom: 20px;
-					cursor: pointer;
-
-					img {
-						width: 100%;
-						height: 100%;
-						object-fit: cover;
-					}
-				}
-
-				h2 {
-					font: normal 40px/1 'work sans';
-					color: #333;
-				}
 			}
 			&.swiper-slide-active {
 				.inner {
@@ -45,34 +29,6 @@
 					transform: scale(1);
 				}
 			}
-		}
-
-		.swiper-pagination {
-			bottom: 40px;
-			filter: grayscale(1) brightness(4);
-			z-index: 5;
-
-			.swiper-pagination-bullet {
-				border-radius: 4px;
-				transition: 0.5s;
-			}
-
-			.swiper-pagination-bullet-active {
-				width: 80px;
-			}
-		}
-
-		.swiper-button-prev,
-		.swiper-button-next {
-			top: auto;
-			bottom: 30px;
-			transform: scale(0.5);
-			filter: grayscale(1) brightness(4);
-			z-index: 6;
-		}
-		.swiper-button-prev {
-			left: auto;
-			right: 60px;
 		}
 	}
 }

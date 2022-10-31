@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { useSelector } from 'react-redux';
 
 function News() {
 
-    const Members = useSelector((store) => store.memberReducer.members);
+
 
     const getLocalData = () => {
         const dummyPosts = [
@@ -30,6 +29,8 @@ function News() {
 
 
 
+
+
     useEffect(() => {
         localStorage.setItem('post', JSON.stringify(Posts));
     }, []);
@@ -47,15 +48,6 @@ function News() {
                     </article>
                 );
             })}
-
-            {
-                Members.map((member, idx) => {
-                    if (idx >= 2) return;
-                    return (
-                        <p key={member.name}>{member.name}</p>
-                    )
-                })
-            }
 
 
         </main>
